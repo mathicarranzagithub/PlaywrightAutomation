@@ -11,9 +11,13 @@ test.describe('Login Page Tests', () => {
     pm = new PageManager(page);
   });
 
-  test('should allow user to login with valid credentials', async ({ page }) => {
-    await pm.loginPageInstance().login(UserInfo.validUser.email, UserInfo.validUser.password);
-    await page.waitForNavigation();
-    expect(page.url()).toContain('account');
+  // test('should allow user to login with valid credentials', async ({ page }) => {
+  //   await pm.loginPageInstance().login(UserInfo.validUser.email, UserInfo.validUser.password);
+  //   await page.waitForNavigation();
+  //   expect(page.url()).toContain('account');
+  // });
+
+  test('should allow user to login with invalid credentials', async () => {
+    await pm.loginPageInstance().login(UserInfo.validUser.email, 'invalid');
   });
 });

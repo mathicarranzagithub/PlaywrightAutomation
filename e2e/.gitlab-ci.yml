@@ -8,7 +8,7 @@ test_playwright:
     - cd e2e
     - npm install # Install dependencies
     - npx playwright install # Install Playwright browsers
-    - npx playwright test e2e/tests/sauceDemoLogin.spec.ts
+    - npx playwright test e2e/tests/loginTests.spec.ts
   artifacts:
     paths:
       - e2e/test-results/ # Ensure the test-results path is correct
