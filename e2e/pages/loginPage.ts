@@ -20,8 +20,8 @@ export class LoginPage {
     return this.page.locator('.btn_action');
   }
 
-  get errorMessage() {
-    return this.page.locator('[data-test=error]');
+  get loginErrorMessage() {
+    return this.page.locator('[data-test=error]'); // .textContent() if we want to extract the text
   }
 
   get forgotPasswordLink() {

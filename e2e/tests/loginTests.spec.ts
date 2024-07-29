@@ -18,8 +18,12 @@ test.describe('Login Page Tests', () => {
     expect(page.url()).toContain('inventory');
   });
 
-  test('Login with invalid username', async () => {
+  test.only('Login with invalid username', async () => {
     await pm.loginPageInstance().login(UserInfo.invalidUser.username, UserInfo.invalidUser.password);
-    expect(ErrorMessages.LoginErrorMessage).toBe(ErrorMessages.LoginErrorMessage);
+    await expect(pm.loginPageInstance().loginErrorMessage).toHaveText(ErrorMessages.LoginErrorMessage);
+
+    // Another solution
+    //   const loginErrorMessage = (await pm.loginPageInstance().errorMessage)?.trim();
+    //   expect(loginErrorMessage?.trim()).toBe(ErrorMessages.LoginErrorMessage);
   });
 });
