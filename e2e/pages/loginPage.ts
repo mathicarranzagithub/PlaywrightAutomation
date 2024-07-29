@@ -8,28 +8,28 @@ export class LoginPage {
     this.page = page;
   }
 
-  get emailInput() {
-    return this.page.locator('input[data-test=email]');
+  get usernameInput() {
+    return this.page.locator('[data-test=username]');
   }
 
   get passwordInput() {
-    return this.page.locator('input[data-test=password]');
+    return this.page.locator('[data-test=password]');
   }
 
   get loginButton() {
-    return this.page.locator('input[data-test=login-submit]');
+    return this.page.locator('.btn_action');
   }
 
-  get registerLink() {
-    return this.page.locator('a[data-test=register-link]');
+  get errorMessage() {
+    return this.page.locator('[data-test=error]');
   }
 
   get forgotPasswordLink() {
     return this.page.locator('a[data-test=forgot-password-link]');
   }
 
-  async login(email: string, password: string) {
-    await this.emailInput.fill(email);
+  async login(username: string, password: string) {
+    await this.usernameInput.fill(username);
     await this.passwordInput.fill(password);
     await this.loginButton.click();
   }

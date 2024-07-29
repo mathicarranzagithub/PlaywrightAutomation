@@ -1,11 +1,16 @@
 export const UserInfo = {
   validUser: {
-    email: 'MathiasPrueba10@gmail.com',
-    password: 'RamsesTest@10',
+    username: 'standard_user',
+    password: 'secret_sauce',
   },
 
   invalidUser: {
-    email: 'invalid@gmail.com',
+    username: 'invalid@gmail.com',
     password: 'invalid',
+  },
+
+  lockedUser: {
+    username: 'locked_out_user',
+    password: 'secret_sauce',
   },
 };
