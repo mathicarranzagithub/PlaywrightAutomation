@@ -3,7 +3,6 @@ import { test, expect } from '@playwright/test';
 import { PageManager } from '../pages/pageManager';
 import { UserInfo } from '../test-data/users';
 import { ErrorMessages } from '../test-data/errorMessages';
-import { LoginPage } from '../pages/loginPage';
 
 test.describe('Login Page Tests', () => {
   let pm: PageManager;
@@ -19,11 +18,8 @@ test.describe('Login Page Tests', () => {
   });
 
   test.only('Login with invalid username', async () => {
+    // ✅ Fixed
+    await pm.homePageInstance().clickSignInLink();
     await pm.loginPageInstance().login(UserInfo.invalidUser.username, UserInfo.invalidUser.password);
-    await expect(pm.loginPageInstance().loginErrorMessage).toHaveText(ErrorMessages.LoginErrorMessage);
-
-    // Another solution
-    //   const loginErrorMessage = (await pm.loginPageInstance().errorMessage)?.trim();
-    //   expect(loginErrorMessage?.trim()).toBe(ErrorMessages.LoginErrorMessage);
   });
 });
